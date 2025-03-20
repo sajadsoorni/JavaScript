@@ -30,8 +30,65 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
 };
 
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+const arr1 = [1, 2, 3];
+const [first, ...rest] = arr1; // first = 1, rest = [2, 3]
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 array
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables: arrays, strings, maps, sets, Not objects
+const str = 'sajad';
+console.log([...str, '', 'S.']);
+console.log(...str);
+console.log(str.split('').join(' '));
+// console.log(`${...str}`); // multiple values separated by a comma are usually only expected when we pass arguments into a function, or when we build a new array.
+
+// Real-world example
+const ingredients = [
+  // prompt("let's make pasta! Ingredients 1?"),
+  // prompt("let's make pasta! Ingredients 2?"),
+  // prompt("let's make pasta! Ingredients 3?"),
+];
+
+console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newResturant = { founding: 1998, ...restaurant, founder: 'Guiseppe' };
+console.log(newResturant);
+
+const resturantCopy = { ...restaurant };
+resturantCopy.name = 'Risturante Roma';
+console.log(resturantCopy.name);
+console.log(restaurant.name);
+
+/*
+///////////////////////////////////////////////
+// Destructing Objects
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Vivian Road',
@@ -66,6 +123,7 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+*/
 
 /*
 /////////////////////////////////////////////////////

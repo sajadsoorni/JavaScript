@@ -41,6 +41,17 @@ const restaurant = {
   },
 };
 
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+// Nullish: null and undefiend (NOT 0 or '')
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+
+/*
+////////////////////////////////////////
+// Short Circuiting ( && and || )
 console.log('-------OR-------');
 
 console.log(3 || 'Sajad');
@@ -73,6 +84,8 @@ restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
 //So the OR operator will return the first truthy value
 //of all the operands,
 //or simply the last value if all of them are falsy.
+
+*/
 
 /*
 /////////////////////////////////////////////

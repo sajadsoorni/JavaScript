@@ -71,6 +71,16 @@ const staffUnique = [...new Set(staff)];
 console.log(staffUnique);
 console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
 
+const memberShip = {
+  Sajad: 'Teacher',
+  Pezhman: 'Teacher',
+  Donara: 'Manager',
+  Gislaine: 'Tech Adviser',
+};
+
+const roles = [...new Set(Object.values(memberShip))];
+console.log(roles);
+
 // console.log([...orderSet]);
 // const result = [...orderSet].map((s) => s.toLowerCase()).join(', ');
 // console.log(result);

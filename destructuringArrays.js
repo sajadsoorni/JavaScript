@@ -48,6 +48,35 @@ const restaurant = {
   },
 };
 
+////////////////////////////////////////////
+// New Operations to Make Sets Useful!
+
+const italianFoods = new Set(['pasta', 'gnocchi', 'tomatoes', 'olive oil', 'garlic', 'basil']);
+
+const mexicanFoods = new Set(['tortillas', 'beans', 'rice', 'tomatoes', 'avocado', 'garlic']);
+
+const commonfoods = italianFoods.intersection(mexicanFoods);
+console.log('Intersection:', commonfoods);
+// console.log([...commonfoods]);
+
+const italianMexicanFusion = italianFoods.union(mexicanFoods);
+console.log(italianMexicanFusion);
+// console.log([...new Set([...italianFoods, ...mexicanFoods])]); // Same union
+
+const uniqueItalianFood = italianFoods.difference(mexicanFoods);
+console.log('Difference italian: ', uniqueItalianFood);
+
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log('Difference mexican:', uniqueMexicanFoods);
+
+const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoods);
+console.log(uniqueItalianAndMexicanFoods);
+
+console.log(italianFoods.isDisjointFrom(mexicanFoods));
+
+/*
+////////////////////////////////////////////////
+// Sets
 const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Kookoo']);
 
 console.log(orderSet);
@@ -84,6 +113,9 @@ console.log(roles);
 // console.log([...orderSet]);
 // const result = [...orderSet].map((s) => s.toLowerCase()).join(', ');
 // console.log(result);
+
+*/
+
 /*
 ///////////////////////////////////////////////
 // Looping objects (keys-values-entries)

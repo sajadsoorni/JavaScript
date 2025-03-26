@@ -48,6 +48,42 @@ const restaurant = {
   },
 };
 
+const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta', 'Kookoo']);
+
+console.log(orderSet);
+console.log(new Set('Sajad'));
+
+console.log(orderSet.size);
+console.log(orderSet.has('Kookoo'));
+console.log(orderSet.has('Fish'));
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Risotto');
+// orderSet.clear();
+console.log(orderSet);
+
+for (const order of orderSet) console.log(order);
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size);
+
+const memberShip = {
+  Sajad: 'Teacher',
+  Pezhman: 'Teacher',
+  Donara: 'Manager',
+  Gislaine: 'Tech Adviser',
+};
+
+const roles = [...new Set(Object.values(memberShip))];
+console.log(roles);
+
+// console.log([...orderSet]);
+// const result = [...orderSet].map((s) => s.toLowerCase()).join(', ');
+// console.log(result);
 /*
 ///////////////////////////////////////////////
 // Looping objects (keys-values-entries)
@@ -494,7 +530,6 @@ BONUS: Create an object called 'scorers' which contains the names of the players
       }
 
 GOOD LUCK 😀
-*/
 
 const game = {
   team1: 'Bayern Munich',
@@ -547,3 +582,5 @@ for (const [team, odd] of Object.entries(game.odds)) {
 // Odd of victory Bayern Munich: 1.33
 // Odd of draw: 3.25
 // Odd of victory Borrussia Dortmund: 6.5
+
+*/

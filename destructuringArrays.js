@@ -48,12 +48,61 @@ const restaurant = {
   },
 };
 
+const airLine = 'TAP Air Portuqal';
+const plane = 'B777';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log(plane[3]);
+console.log('B747'[0]);
+
+console.log(airLine.length);
+console.log('B787'.length);
+
+console.log(airLine.indexOf('r'));
+console.log(airLine.lastIndexOf('r'));
+console.log(airLine.indexOf('Portuqal'));
+
+console.log(airLine.slice(4));
+console.log(airLine.slice(4, 7));
+
+console.log(airLine.slice(0, airLine.indexOf(' ')));
+console.log(airLine.slice(airLine.lastIndexOf(' ') + 1));
+
+console.log(airLine.slice(-2));
+console.log(airLine.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat 😬');
+  else console.log('You got lucky 😍');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('Sajad'));
+console.log(typeof new String('Sajad'));
+
+console.log(typeof new String('Sajad').slice(1));
+
+/////////////////////////////////////////////////////
+// const str = 'sajad';
+// const charArray = [...str];
+// const filter = prompt('Enter the char that you want to filter');
+// const filteredStr = charArray.filter((char) => char !== filter);
+// console.log(filteredStr);
+
+// console.log([...airLine].map((char, index) => [index, char]));
+
 /*
 ////////////////////////////////////
 // Maps: Iteration
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
-  [1, 'C'],
+  [1, 'C'],````````````
   [2, 'Java'],
   [3, 'JavaScript'],
   ['correct', 3],
@@ -709,7 +758,6 @@ and the keys are the minutes in which each event happened (a football game has 9
       [FIRST HALF] 17: ⚽️ GOAL
 
 GOOD LUCK 😀
-*/
 
 const gameEvents = new Map([
   [17, '⚽️ GOAL'],
@@ -744,3 +792,4 @@ for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[ ${half} HALF] ${min}: ${event}`);
 }
+*/

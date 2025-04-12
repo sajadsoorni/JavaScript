@@ -48,6 +48,32 @@ const restaurant = {
   },
 };
 
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// My solution
+// const removedRest = (str) => str.slice(0, 3).toUpperCase();
+// for (const flight of flights.split('+')) {
+//   const [status, from, to, time] = flight.split(';');
+//   const [hour, minute] = time.split(':');
+//   const res = `${status.split('_').join(' ')} from ${removedRest(from)} to ${removedRest(to)} (${hour}h${minute})`;
+//   const delayedCheck = status.toLocaleLowerCase().includes('delayed');
+//   const message = (delayedCheck ? '🔴' + res : res).padStart(50, ' ');
+
+//   console.log(message);
+// }
+
+const getCode = (str) => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll('_', ' ')} ${getCode(from)} ${getCode(
+    to
+  )} (${time.replace(':', 'h')})`.padStart(50, ' ');
+  console.log(output);
+}
+
 /*
 
 ///////////////////////////////////////////
@@ -953,7 +979,6 @@ Afterwards, test with your own test data!
 
 GOOD LUCK 😀
 
-*/
 
 document.body.append(document.createElement('textarea'));
 
@@ -964,28 +989,29 @@ document.querySelector('button').addEventListener('click', function () {
   const rows = text.split('\n');
   const capitalized = [];
   // for (const row in rows) {
-  //   const rowNumber = Number(row) + 1;
-  //   console.log(rowNumber);
-  //   const normalizedChar = rows[row].toLocaleLowerCase();
-  //   const [first, second] = normalizedChar.split('_');
-  //   const camelCase = second[0].toUpperCase() + second.slice(1) + '✅'.repeat(rowNumber) + '\n';
-  //   capitalized.push(first + camelCase);
-  // }
-  // console.log(capitalized.join(' '));
-
-  for (const [index, row] of rows.entries()) {
-    const [first, second] = row.toLocaleLowerCase().trim().split('_');
-    const res = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
-
-    console.log(res.padEnd(20) + '✅'.repeat(index + 1));
-  }
-});
+    //   const rowNumber = Number(row) + 1;
+    //   console.log(rowNumber);
+    //   const normalizedChar = rows[row].toLocaleLowerCase();
+    //   const [first, second] = normalizedChar.split('_');
+    //   const camelCase = second[0].toUpperCase() + second.slice(1) + '✅'.repeat(rowNumber) + '\n';
+    //   capitalized.push(first + camelCase);
+    // }
+    // console.log(capitalized.join(' '));
+    
+    for (const [index, row] of rows.entries()) {
+      const [first, second] = row.toLocaleLowerCase().trim().split('_');
+      const res = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+      
+      console.log(res.padEnd(20) + '✅'.repeat(index + 1));
+    }
+  });
+  */
 
 /*
-
-underscore_case
- first_name
-Some_Variable 
+  
+  underscore_case
+  first_name
+  Some_Variable 
   calculate_AGE
 delayed_departure
 
